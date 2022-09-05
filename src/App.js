@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoContainer from './components/TodoContainer';
+import { BrowserRouter, Routes, Route  } from 'react-router-dom';
+import About from './pages/About';
+import NotMatch from './pages/NotMatch';
+import NavBAr from './components/NavBAr';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBAr />
+      <Routes>
+        <Route path='/' element={ <TodoContainer /> } />
+        <Route path='/about' element={ <About /> } />
+        <Route path='*' element={ <NotMatch /> } />
+      </Routes>
+      
     </div>
   );
 }
